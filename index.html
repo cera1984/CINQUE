@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+  <meta name="theme-color" content="#10101b">
+  <meta name="description" content="CINQUE. — il gioco di parole italiane da 5 lettere, con partite infinite, statistiche, tema scuro e modalità difficile.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CINQUE.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta property="og:title" content="CINQUE. — Parole infinite">
+  <meta property="og:description" content="Cinque lettere. Sei tentativi. Nessun limite.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0iIzE3MTQyNSIvPgogPHJlY3QgeD0iOSIgeT0iMTgiIHdpZHRoPSI4IiBoZWlnaHQ9IjI5IiByeD0iMyIgZmlsbD0iI0E1OEJGQiIvPgogPHJlY3QgeD0iMjAiIHk9IjEwIiB3aWR0aD0iOCIgaGVpZ2h0PSIzNyIgcng9IjMiIGZpbGw9IiNBNThCRkIiLz4KIDxyZWN0IHg9IjMxIiB5PSIxNyIgd2lkdGg9IjgiIGhlaWdodD0iMzAiIHJ4PSIzIiBmaWxsPSIjQTU4QkZCIi8+CiA8cmVjdCB4PSI0MiIgeT0iOSIgd2lkdGg9IjgiIGhlaWdodD0iMzgiIHJ4PSIzIiBmaWxsPSIjQTU4QkZCIi8+CiA8Y2lyY2xlIGN4PSI1NCIgY3k9IjUyIiByPSI0IiBmaWxsPSIjQTU4QkZCIi8+Cjwvc3ZnPgo=">
+  
+  
+  <style>
+:root{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-synthesis:none;-webkit-font-smoothing:antialiased;touch-action:manipulation}
+*{box-sizing:border-box}html{height:100%;background:#10101b}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+body{--bg:#10101b;--surface:#1b1b2a;--surface-raised:#232336;--text:#f8f7ff;--secondary:#a1a0b7;--muted:#72718b;--line:rgba(255,255,255,.095);--empty:#242538;--tile-border:#43435e;--filled:#303049;--key:#343449;--key-hover:#4c4c67;--accent:#ae93ff;--accent-strong:#9b79ff;--accent-ink:#11101a;--green:#40aa86;--yellow:#e8b85e;--gray:#51516a;--shadow:0 28px 65px rgba(0,0,0,.32);margin:0;min-height:100%;min-height:100dvh;background:var(--bg);color:var(--text);position:relative;overflow-x:hidden;transition:background .24s,color .24s}
+body[data-theme="light"]{--bg:#f6f5fa;--surface:#fff;--surface-raised:#f7f6fb;--text:#212036;--secondary:#706f83;--muted:#88879a;--line:rgba(36,31,68,.11);--empty:#faf9fd;--tile-border:#d8d6e5;--filled:#eeedf5;--key:#e7e5ee;--key-hover:#d6d2e4;--accent:#7351d8;--accent-strong:#7351d8;--accent-ink:#fff;--green:#2b9975;--yellow:#c99835;--gray:#8e8ca1;--shadow:0 25px 70px rgba(51,40,89,.10)}
+.ambient{position:absolute;pointer-events:none;border-radius:999px;filter:blur(75px);opacity:.16;z-index:0}.ambient-one{width:530px;height:530px;background:#7655d2;left:-295px;top:100px}.ambient-two{width:440px;height:440px;background:#59329f;right:-240px;bottom:-230px}body[data-theme="light"] .ambient{opacity:.10}
+.app-shell{max-width:1240px;min-height:100dvh;padding:0 38px;position:relative;z-index:1;margin:0 auto;display:flex;flex-direction:column}
+.site-header{height:95px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);flex-shrink:0}.brand{display:inline-flex;align-items:center;gap:14px;font-size:25px;font-weight:850;letter-spacing:-1.5px}.brand-dot{color:var(--accent)}.brand-mark{height:26px;display:flex;gap:3px;align-items:center;transform:rotate(-9deg)}.brand-mark i{display:block;background:var(--accent);width:6px;height:6px;border-radius:2px}.brand-mark i:nth-child(1){height:15px}.brand-mark i:nth-child(2){height:24px}.brand-mark i:nth-child(3){height:17px}.brand-mark i:nth-child(4){height:25px}.brand-mark i:nth-child(5){height:12px}.header-actions{display:flex;gap:9px}.icon-btn{height:43px;width:43px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--secondary);display:grid;place-items:center;border-radius:12px;transition:background .18s,color .18s,transform .18s}.icon-btn:hover{color:var(--text);background:var(--surface-raised);transform:translateY(-2px)}.icon-btn svg,.new-game-control svg{height:20px;width:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(450px,530px);gap:clamp(28px,5vw,100px);align-items:center;flex:1;padding:46px 0 38px}.intro{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;padding:62px 0 35px}.eyebrow{display:flex;align-items:center;gap:9px;color:var(--accent);font-size:10px;font-weight:850;letter-spacing:2px;white-space:nowrap}.status-ping,.online-dot,.footnote-indicator,.message-dot{display:inline-block;flex-shrink:0;width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 5px rgba(174,147,255,.09)}.eyebrow-line{height:1px;background:var(--line);flex:1;min-width:18px;max-width:40px;margin:0 3px}.intro h1{font-size:clamp(47px,5.35vw,78px);letter-spacing:-.071em;line-height:1.04;font-weight:850;margin:33px 0 24px}.intro h1 em{font-style:normal;color:var(--accent);letter-spacing:-.081em}.h1-dot{color:var(--accent)}.intro-desc{color:var(--secondary);font-size:17px;line-height:1.65;letter-spacing:-.3px;max-width:355px}.side-stats{display:flex;justify-content:space-between;max-width:445px;gap:20px;border-top:1px solid var(--line);padding-top:25px}.side-stats>div{display:flex;flex-direction:column;gap:8px}.side-label{font-size:10px;letter-spacing:1.4px;color:var(--muted);font-weight:750;white-space:nowrap}.side-stats strong{font-size:43px;line-height:1.1;font-weight:800;letter-spacing:-2px;font-variant-numeric:tabular-nums}.intro-footnote{display:flex;align-items:center;gap:10px;margin-top:54px;color:var(--muted);font-size:9px;letter-spacing:1px;font-weight:760}.footnote-indicator{height:5px;width:5px;background:var(--green);box-shadow:none}
+.game-card{width:100%;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);border-radius:26px;padding:27px 28px 24px;position:relative}.game-card:before{content:"";position:absolute;left:35px;right:35px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(174,147,255,.6),transparent)}.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.card-eyebrow{font-size:11px;letter-spacing:1.4px;color:var(--secondary);font-weight:850}.card-eyebrow #roundNumber{color:var(--accent)}.header-split{padding:0 11px;color:var(--muted)}.infinity{color:var(--accent);font-size:16px;vertical-align:-1px}.card-subtitle{color:var(--muted);font-size:13px;margin-top:10px}.new-game-control{display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);background:var(--surface-raised);color:var(--text);padding:12px 13px;border-radius:11px;white-space:nowrap;font-size:10px;letter-spacing:1px;font-weight:800}.new-game-control:hover{border-color:var(--accent);color:var(--accent)}.new-game-control svg{height:15px;width:15px}.board-wrap{display:flex;justify-content:center;margin:29px 0 17px}.board{--tile:clamp(48px,4.55vw,60px);display:grid;grid-template-rows:repeat(6,var(--tile));gap:7px;align-items:center}.board-row{display:grid;grid-template-columns:repeat(5,var(--tile));gap:7px}.tile{width:var(--tile);height:var(--tile);display:grid;place-items:center;border:1.5px solid var(--tile-border);border-radius:10px;color:var(--text);font-size:calc(var(--tile)*.48);font-weight:830;letter-spacing:-1px;background:var(--empty);line-height:1;user-select:none;transform-style:preserve-3d}.tile.filled{background:var(--filled);border-color:var(--secondary)}.tile.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px rgba(174,147,255,.12)}.tile.correct,.tile.present,.tile.absent{color:#fff;border-color:transparent}.tile.correct{background:var(--green)}.tile.present{background:var(--yellow)}.tile.absent{background:var(--gray)}.tile.pop{animation:tile-pop .14s ease-out}.tile.flip{animation:tile-flip .65s ease both;animation-delay:calc(var(--i)*110ms)}.board-row.shake{animation:shake .38s ease-in-out}
+@keyframes tile-pop{50%{transform:scale(1.1)}}@keyframes tile-flip{0%{transform:rotateX(0)}45%{transform:rotateX(90deg)}55%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.game-message{text-align:center;font-size:12px;color:var(--secondary);height:32px;display:flex;align-items:center;justify-content:center;gap:9px}.message-dot{width:5px;height:5px;box-shadow:none}.keyboard{display:flex;flex-direction:column;gap:6px;margin-top:11px;user-select:none}.keyboard-row{display:flex;gap:5px;justify-content:center}.key{flex:1;min-width:0;height:49px;max-width:48px;background:var(--key);color:var(--text);border:0;border-radius:8px;font-size:14px;font-weight:750;transition:background .14s,transform .13s;touch-action:manipulation}.key:hover{background:var(--key-hover)}.key:active{transform:translateY(2px)}.key.wide{flex:1.55;max-width:72px;font-size:10px;letter-spacing:.4px}.key.correct,.key.present,.key.absent{color:#fff}.key.correct{background:var(--green)}.key.present{background:var(--yellow)}.key.absent{background:var(--gray)}.key svg{height:20px;width:20px;vertical-align:middle;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:25px;padding-top:19px;border-top:1px solid var(--line);color:var(--muted);font-size:9px;letter-spacing:1.1px;font-weight:800;gap:5px}.card-footer>span{display:flex;align-items:center;gap:8px}.online-dot{width:6px;height:6px;background:var(--green);box-shadow:none}.card-footer button{border:0;color:var(--secondary);font-size:9px;letter-spacing:.8px;font-weight:800;background:none;padding:4px}.card-footer button:hover{color:var(--accent)}.site-footer{height:64px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:1.4px}
+.toast{position:fixed;left:50%;top:102px;transform:translate(-50%,-15px);background:var(--text);color:var(--bg);border-radius:12px;padding:13px 19px;font-size:13px;font-weight:730;box-shadow:0 15px 40px rgba(0,0,0,.28);pointer-events:none;opacity:0;z-index:15;transition:opacity .2s,transform .2s;max-width:90vw;text-align:center}.toast.shown{opacity:1;transform:translate(-50%,0)}
+.modal-scrim{position:fixed;inset:0;z-index:10;background:rgba(4,4,12,.7);backdrop-filter:blur(9px);display:flex;justify-content:center;align-items:center;padding:20px;overflow-y:auto}.modal-scrim[hidden]{display:none}.modal{width:100%;max-width:475px;max-height:min(90dvh,790px);overflow-y:auto;background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:23px;padding:28px;box-shadow:0 32px 95px rgba(0,0,0,.37)}.modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding-bottom:19px;margin-bottom:23px}.modal-eyebrow{font-size:10px;letter-spacing:1.4px;color:var(--accent);font-weight:800}.modal-head h2{margin:9px 0 0;font-size:27px;letter-spacing:-1.2px;line-height:1.1}.close-btn{flex-shrink:0}.modal-content{font-size:14px;line-height:1.65;color:var(--secondary)}.modal-content p{margin:0 0 18px}.modal-content strong{color:var(--text)}.ex-row{display:flex;gap:7px;margin:7px 0 6px}.ex-tile{width:43px;height:43px;border-radius:8px;border:1px solid var(--tile-border);display:grid;place-items:center;font-size:20px;font-weight:800;color:var(--text)}.ex-tile.correct{background:var(--green);color:#fff;border:0}.ex-tile.present{background:var(--yellow);color:#fff;border:0}.ex-tile.absent{background:var(--gray);color:#fff;border:0}.example-caption{font-size:12px;margin:0 0 16px!important}.stat-big-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 24px}.stat-big{background:var(--surface-raised);border:1px solid var(--line);border-radius:13px;padding:15px 4px;text-align:center}.stat-big b{display:block;font-size:24px;letter-spacing:-.8px;color:var(--text)}.stat-big span{font-size:10px;color:var(--muted);line-height:1.3;display:block;margin-top:5px}.hist-label{font-size:11px;letter-spacing:1px;font-weight:800;color:var(--secondary);margin-bottom:15px}.hist-row{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:12px;color:var(--text)}.hist-n{width:12px}.hist-track{height:25px;flex:1;background:var(--surface-raised);border-radius:5px;overflow:hidden}.hist-fill{height:100%;background:var(--accent-strong);min-width:0;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;color:#fff;font-weight:800;border-radius:5px;transition:width .3s}.hist-fill.zero{background:transparent;color:var(--muted);justify-content:flex-start;padding-left:7px}.settings-line{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px 0;border-bottom:1px solid var(--line)}.settings-line:first-child{padding-top:0}.settings-line:last-child{border-bottom:0}.settings-line strong{font-size:14px;display:block}.settings-line small{font-size:12px;display:block;color:var(--muted);margin-top:3px;line-height:1.45}.switch{border:0;width:49px;height:28px;background:var(--gray);border-radius:50px;padding:4px;display:flex;justify-content:flex-start;align-items:center;flex-shrink:0;transition:background .15s}.switch:before{content:"";display:block;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0002;transition:transform .2s}.switch.on{background:var(--accent-strong)}.switch.on:before{transform:translateX(21px)}.modal-action{display:flex;align-items:center;justify-content:center;width:100%;padding:15px 18px;margin-top:17px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:12px;font-size:13px;font-weight:850;letter-spacing:.1px;gap:9px}.modal-action:hover{filter:brightness(1.09)}.modal-action.secondary{background:var(--surface-raised);border:1px solid var(--line);color:var(--text)}.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.modal-actions .modal-action{margin-top:10px}.word-reveal{margin:12px 0 14px;padding:17px;background:var(--surface-raised);border-radius:14px;text-align:center}.word-reveal .reveal-label{font-size:10px;letter-spacing:2px;font-weight:850;color:var(--muted)}.word-reveal strong{font-size:33px;letter-spacing:6px;color:var(--accent);display:block;margin-top:4px}.result-badge{background:rgba(174,147,255,.10);border:1px solid rgba(174,147,255,.23);display:inline-block;color:var(--accent);padding:5px 11px;border-radius:40px;font-size:10px;font-weight:850;letter-spacing:1px}.result-message{color:var(--secondary);font-size:13px;margin-top:14px!important}.auto-status{padding-top:13px;font-size:11px;text-align:center;color:var(--muted)}.inline-link{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer;font-weight:700}.separator{border-top:1px solid var(--line);margin:17px 0}.ios-steps{padding-left:20px;margin:15px 0}.ios-steps li{margin-bottom:9px}.modal-footer-text{font-size:11px;margin-top:17px;color:var(--muted)}.noscript{position:fixed;inset:0;background:var(--bg);color:var(--text);display:grid;place-items:center;z-index:100}
+@media(max-width:1020px){.layout{grid-template-columns:minmax(0,1fr) minmax(390px,480px);gap:25px}.intro{padding-top:70px}.intro h1{font-size:52px}.eyebrow{font-size:9px;letter-spacing:1.1px}}
+@media(max-width:810px){.app-shell{padding:0 24px}.site-header{height:69px}.layout{display:flex;flex-direction:column;align-items:stretch;gap:22px;padding:23px 0}.intro{padding:0;gap:16px}.intro h1{font-size:36px;margin:11px 0 8px;line-height:1.07}.intro h1 br{display:none}.intro-desc{font-size:13px;line-height:1.4;margin:0}.intro-desc br{display:none}.eyebrow{font-size:9px;letter-spacing:1px}.intro-bottom{display:none}.game-card{max-width:550px;margin:0 auto}.site-footer{height:48px}.brand{font-size:22px}}
+@media(max-width:540px){.app-shell{padding:0 13px}.site-header{height:58px}.brand{font-size:20px;gap:8px}.brand-mark{transform:scale(.80) rotate(-9deg);transform-origin:left center;margin-right:-4px}.header-actions{gap:5px}.icon-btn{height:36px;width:36px;border-radius:10px}.icon-btn svg{height:18px;width:18px}.layout{padding:14px 0 16px;gap:13px}.intro h1{font-size:clamp(28px,7vw,38px);margin:8px 0 5px}.intro-desc{font-size:11px}.eyebrow{font-size:8px;letter-spacing:.7px}.game-card{border-radius:19px;padding:18px 13px 17px}.card-eyebrow{font-size:9px;letter-spacing:1.1px}.card-subtitle{font-size:11px;margin-top:6px}.new-game-control{padding:9px 10px;font-size:9px;border-radius:9px}.board{--tile:clamp(43px,12.5vw,56px);gap:5px}.board-row{gap:5px}.tile{border-radius:8px}.board-wrap{margin:18px 0 8px}.game-message{height:26px;font-size:11px}.keyboard{margin-top:8px;gap:5px}.keyboard-row{gap:4px}.key{height:clamp(42px,10.4vw,52px);border-radius:6px;font-size:12px}.key.wide{font-size:9px}.card-footer{margin-top:16px;padding-top:13px;font-size:8px}.card-footer button{font-size:8px}.site-footer{font-size:8px;letter-spacing:.7px;height:45px}.toast{top:68px}.modal{padding:22px 18px;max-height:89dvh}.modal-head h2{font-size:24px}}
+@media(max-width:360px){.board{--tile:43px}.key{height:43px}.site-footer span:last-child{display:none}.eyebrow{font-size:7px}}
+@media(min-width:812px) and (max-height:740px){.layout{padding:25px 0}.game-card{padding:18px 23px}.board-wrap{margin:15px 0 8px}.board{--tile:47px}.key{height:39px}.card-footer{margin-top:13px}.intro{padding-top:40px}.intro h1{font-size:51px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+body.modal-open{overflow:hidden}
+.tile.win-bounce{animation:win-celebrate .45s ease-out}
+@keyframes win-celebrate{0%,100%{transform:translateY(0)}35%{transform:translateY(-14px)}65%{transform:translateY(-4px)}}
+@media(max-width:360px){.board{--tile:min(43px,calc((100vw - 64px)/5))}}
+@media(prefers-reduced-motion:reduce){.tile.win-bounce{animation:none}}
+/* Ambient light is painted as background to avoid overflow on mobile Safari. */
+body{background:radial-gradient(ellipse 440px 480px at -170px 36%,rgba(130,94,225,.13),transparent 85%),radial-gradient(ellipse 400px 420px at 112% 92%,rgba(115,72,208,.10),transparent 85%),var(--bg)}
+.ambient{display:none}
+
+</style>
+  <title>CINQUE. — Parole infinite</title>
+  
+  
+  
+</head>
+<body data-theme="dark">
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="CINQUE. — pagina iniziale">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span>CINQUE<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="header-actions" aria-label="Strumenti di gioco">
+        <button class="icon-btn" id="helpBtn" aria-label="Come si gioca" title="Come si gioca"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.4 2.4 0 1 1 4.2 1.7c-.9.9-1.9 1.2-1.9 2.7M12 17.5h.01"/></svg></button>
+        <button class="icon-btn" id="statsBtn" aria-label="Statistiche" title="Statistiche"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11m6 9V5m6 15v-7m4 7V8"/></svg></button>
+        <button class="icon-btn" id="settingsBtn" aria-label="Impostazioni" title="Impostazioni"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6M16 14v6"/></svg></button>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="intro" aria-label="Benvenuto">
+        <div class="intro-top">
+          <div class="eyebrow"><span class="status-ping"></span> WORD GAME / ITALIANO <span class="eyebrow-line"></span> NO LIMITS</div>
+          <h1>Le parole<br> non <em>finiscono</em><span class="h1-dot">.</span></h1>
+          <p class="intro-desc">Cinque lettere. Sei tentativi.<br> Un'altra partita, ogni volta che vuoi.</p>
+        </div>
+        <div class="intro-bottom">
+          <div class="side-stats" aria-label="I tuoi progressi">
+            <div><span class="side-label">PARTITE</span><strong id="sideGames">00</strong></div>
+            <div><span class="side-label">VITTORIE</span><strong id="sideWins">00</strong></div>
+            <div><span class="side-label">SERIE ATTUALE <span aria-hidden="true">↗</span></span><strong id="sideStreak">00</strong></div>
+          </div>
+          <p class="intro-footnote"><span class="footnote-indicator"></span> FATTO PER CHI NON VUOLE ASPETTARE DOMANI</p>
+        </div>
+      </section>
+
+      <section class="game-card" aria-label="Gioco CINQUE">
+        <div class="card-head">
+          <div>
+            <div class="card-eyebrow">PARTITA <span id="roundNumber">#001</span><span class="header-split">/</span> INFINITA <span class="infinity">∞</span></div>
+            <div class="card-subtitle" id="subtitle">Trova la parola nascosta</div>
+          </div>
+          <button class="new-game-control" id="newGameBtn" title="Nuova partita" aria-label="Nuova partita"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M19 12a7 7 0 1 0-2.1 5"/></svg><span>NUOVA</span></button>
+        </div>
+        <div class="board-wrap">
+          <div class="board" id="board" role="group" aria-label="Griglia di 6 tentativi, 5 lettere"></div>
+        </div>
+        <div class="game-message" id="gameMessage"><span class="message-dot"></span> <span id="messageText">6 tentativi per indovinare</span></div>
+        <div class="keyboard" id="keyboard" aria-label="Tastiera di gioco"></div>
+        <div class="card-footer"><span><span class="online-dot"></span> <span id="statusText">PRONTO A GIOCARE</span></span><button id="shortHelpBtn">COME SI GIOCA <span aria-hidden="true">↗</span></button></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>CINQUE. © 2026</span><span>ITALIANO / 5 LETTERE / ∞ PARTITE</span></footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div class="modal-scrim" id="modalScrim" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head"><div><span class="modal-eyebrow" id="modalEyebrow">CINQUE. / MENU</span><h2 id="modalTitle">Titolo</h2></div><button class="icon-btn close-btn" id="closeModalBtn" aria-label="Chiudi"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+      <div class="modal-content" id="modalContent"></div>
+    </section>
+  </div>
+  <noscript><div class="noscript">Per giocare a CINQUE. devi abilitare JavaScript nel browser.</div></noscript>
+<script>
+// Liste locali, utilizzabili offline. Soluzioni curate a mano; tentativi più permissivi.
+window.CINQUE_WORDS = Object.freeze({answers: ["abbia","abete","abita","abito","acero","aceto","acida","acido","acqua","acuto","addio","agile","agita","aglio","aiuto","album","alibi","alice","alito","altra","altre","altri","altro","amara","amare","amaro","amato","ambra","amica","amici","amico","amore","ampio","anche","anima","anime","animo","ansia","apice","apnea","arabo","arduo","arena","arida","arido","aroma","ascia","asilo","asino","assai","astio","audio","avaro","avere","avida","avido","avvio","bacio","bagno","balla","ballo","balza","banca","banda","bando","barba","barca","basso","basta","becco","beffa","bella","belle","belli","bello","belva","benda","bimba","bimbo","birra","bivio","bocca","bolla","bollo","bomba","bordo","borgo","borsa","bosco","botta","botte","botto","brano","brava","bravi","bravo","breve","brina","brodo","bruno","buona","buoni","buono","burro","busta","butta","butto","calce","caldo","calma","calmo","calza","calze","campo","canna","canta","canti","canto","capra","carie","carne","carro","carta","casco","causa","cauto","cella","celle","cenno","cento","cerca","cerco","certo","cervo","cesta","ciclo","cieca","cieco","cielo","cifra","cigno","cinta","circa","circo","clima","cocco","colla","colle","collo","colmo","colpa","colpo","colta","colto","conta","conti","conto","copia","copie","coppa","corda","corpo","corre","corsa","corso","corta","corto","costa","coste","costi","costo","cotta","cotte","cotto","crede","credi","credo","crema","crepa","crisi","croce","crudo","culla","culto","cuoca","cuoco","cuoio","cuore","curva","curvo","dagli","danni","danno","danza","dardo","degno","della","delta","dente","denti","desco","detta","dette","detti","detto","diamo","dieta","dimmi","disco","dogma","dolce","dolci","donna","donne","dorme","dormi","dorso","dossi","dotto","drago","drama","droga","dubbi","duomo","edera","elica","entra","entri","entro","erede","esame","esami","esiti","esito","etica","evita","extra","facce","falce","falsa","false","falsi","falso","fanno","farlo","farsi","fatta","fatte","fatti","fatto","fauna","felpa","ferma","fermo","ferro","festa","fiato","fibra","fieno","fiera","fiero","filma","finta","finto","fioca","fioco","fiore","fiori","firma","fissa","fisso","fiume","flebo","flora","fogna","folle","folto","fondo","fonte","fonti","forma","forme","forno","forse","forte","forza","frana","frase","frasi","frena","freno","frese","frode","fugge","furbo","furia","fusto","gamba","gambe","gatta","gatto","gente","gergo","gesso","gesto","gioco","gioia","giura","giuro","globo","gobba","gocce","goffa","goffi","golfo","gomma","grado","grana","grano","grato","grave","grida","gridi","grido","grifo","grigi","guaio","guida","guidi","gusto","idolo","imene","imita","impar","invia","invio","isola","ladro","larga","largo","larva","laser","latta","latte","legge","legna","lente","lenti","lento","leone","lepre","lesso","letta","letti","letto","libri","libro","lieve","linea","lista","litri","litro","lizza","lotta","lotte","lungo","luogo","lusso","macco","maghe","magia","magno","magra","magro","mamma","manco","manda","mando","manga","mappa","marca","marco","marea","marmi","massa","matta","matto","mente","merce","merlo","merto","messa","metro","mezza","mezzi","mezzo","micio","miele","migra","mille","mista","misto","molla","molto","mondo","monte","morde","mordi","morsa","morso","morte","mosca","mossa","mosse","mosto","motto","mucca","multa","museo","mutuo","nanna","negro","nervo","netto","ninja","nonna","nonno","norma","notte","nulla","nuoto","nuova","nuove","nuovi","nuovo","occhi","odore","odori","olive","olivo","ombra","omena","onore","opaco","opera","orari","orata","orchi","orivo","osare","osato","ovest","ovvia","ovvio","pacco","padre","paghi","pagro","palco","palla","palma","panna","panni","panno","parco","parla","parli","parlo","parte","parto","pasci","pasta","pasto","patto","pausa","pazza","pazzo","pelle","pelli","penna","penso","perla","pesca","pesce","pesci","pesto","petti","petto","pezzo","piaga","piana","piane","piano","picco","piega","piena","pieni","pieno","pigna","pigne","pigro","pinna","pinta","piove","piper","pista","piuma","pizza","pizzi","placa","podio","poema","poeta","pollo","polpa","polso","pompa","ponte","porco","porre","porta","porti","porto","possa","posso","posta","posto","prato","preda","prego","presa","preso","prima","primi","primo","priva","prive","privo","prova","prove","pugni","pugno","pulce","punta","punte","punti","punto","puzza","quale","quasi","quota","radio","ragno","rampa","razza","razzo","reale","regia","regno","renda","rende","rendi","renna","resta","resti","resto","ricar","ricca","ricco","righe","rissa","risse","ritmi","ritmo","rocca","rocia","rombo","rompe","rompi","rossa","rosso","rotta","rotti","rotto","ruota","ruspa","sacco","sacra","sacro","sagra","salda","saldo","salsa","salse","salta","salto","salva","salve","salvo","sanno","santa","santo","sasso","scade","scala","scale","scalo","scapa","scavo","scena","scese","scesi","sceso","scopa","scopo","scudo","scusa","secca","secco","sedia","segni","segno","senso","sente","senti","sento","senza","seria","serio","serra","serve","servi","servo","sfida","sfidi","sigla","sogna","sogni","sogno","solco","soldi","somma","sonni","sonno","sopra","sorda","sordo","sorso","sorta","sorte","sosta","sotto","spada","spago","spala","sparo","spazi","spesa","spese","spiga","spina","spira","spola","sport","sposa","sposi","sposo","stadi","stare","stati","stato","stava","stelo","stile","stili","stima","stimo","stira","stiro","stufo","suite","suolo","suona","suoni","suono","super","svago","svela","tacco","talco","tanta","tanto","tappi","tappo","tardi","targa","tasca","tassa","tasse","tasto","tatto","tazza","tempo","tenda","tende","tendi","tengo","tenia","tenta","tenue","terra","testa","testo","tetto","tigre","tinta","tinto","tizio","tocca","tocco","tomba","tombe","tondi","tondo","tonfo","tonno","torna","torre","torta","torte","torti","torto","tosse","tosti","tosto","trama","trame","treno","trina","trono","trova","trovi","trovo","tuffa","tuffi","tuffo","turni","turno","tutta","tutto","udito","ulivo","umana","umano","umido","unica","unico","unire","unita","unito","urina","usano","usare","usata","usate","usati","usato","utile","valga","valle","valli","valso","vanno","varia","vario","vasta","vasti","vasto","venti","vento","verde","verga","versa","versi","verso","veste","vetro","viale","video","villa","vince","vinci","vinti","vinto","viola","virus","vista","visto","vizio","volgo","volle","volpe","volta","volti","volto","vuota","vuoto","zaino","zampa","zanna","zappa","zebra","zolla","zombi","zucca","zuffa","zuppa","zuppe"], allowed: ["abbia","abete","abita","abiti","abito","aceri","acero","aceto","acida","acido","acqua","acque","acuto","adara","addio","adula","agile","agita","agito","aglio","aiuto","album","alibi","alice","alito","altra","altre","altri","altro","alzai","amara","amare","amaro","amato","amava","amavi","ambra","amica","amici","amico","amore","ampio","anche","ancor","andai","anima","anime","animo","ansia","antro","apice","apnea","aprii","arabo","arduo","arena","arida","arido","aroma","ascia","asilo","asino","assai","astio","attua","attuo","audio","avaro","avere","avete","avida","avido","avrai","avrei","avvio","bacio","bagni","bagno","baldo","balla","balli","ballo","balza","balze","banca","banda","bande","bando","barba","barbo","barca","baron","basso","basta","becco","beffa","beige","bella","belle","belli","bello","belva","belve","benda","bende","beuta","bevia","bimba","bimbo","bioma","birra","bisca","bivio","boati","bocca","bocce","bolla","bollo","bomba","bordo","borgo","borsa","bosco","botta","botte","botto","brano","brava","bravi","bravo","breve","brina","brodo","bruno","buchi","buona","buoni","buono","burro","busta","buste","butta","butto","cagna","calce","caldi","caldo","calma","calmo","calza","calze","cambi","campi","campo","canna","canta","canti","canto","capra","capre","carie","carne","carri","carro","carta","carte","casca","casco","casse","causa","cauto","cavia","cella","celle","cenno","cento","cerca","cerco","certa","certe","certi","certo","cervo","cesta","ceste","chela","china","chino","cicli","ciclo","cieca","cieco","cieli","cielo","cifra","cifre","cigni","cigno","cinta","cinti","cinto","circa","circo","clero","clima","cobra","cocco","cogli","colla","colle","colli","collo","colmi","colmo","colpa","colpe","colpi","colpo","colta","colto","comma","conta","conti","conto","copia","copie","coppa","corda","corde","corpi","corpo","corre","corri","corsa","corse","corso","corta","corto","cosce","costa","coste","costi","costo","cotta","cotte","cotto","crede","credi","credo","crema","crepa","crepe","crepo","crisi","croce","crudi","crudo","culla","culle","culto","cuoca","cuoco","cuoio","cuore","curva","curve","curvo","dagli","dammi","danni","danno","danza","darai","dardo","darsi","darti","debbo","degno","della","delle","dello","delta","denso","dente","denti","desco","detta","dette","detti","detto","diamo","dieta","dimmi","dirlo","dirsi","disco","dogma","dolce","dolci","donna","donne","dorme","dormi","dorso","dossi","dotta","dotto","drago","drama","droga","dubbi","duomi","duomo","ebano","edera","edile","elica","emulo","entra","entri","entro","erede","eredi","erica","eroga","esame","esami","esita","esiti","esito","etero","etica","evaso","evita","eviti","evito","extra","facce","falce","falci","falsa","false","falsi","falso","fanno","farai","farlo","farsi","farti","fatta","fatte","fatti","fatto","fauna","felce","felpa","ferma","fermi","fermo","ferri","ferro","festa","feste","fiato","fibra","fibre","fichi","fieno","fiera","fiero","filma","finta","finto","fioca","fioco","fiore","fiori","firma","firme","fissa","fisso","fiume","flebo","flora","fogna","fogne","folle","folto","fondi","fondo","fonte","fonti","forma","forme","forni","forno","forse","forte","forti","forza","fossi","frana","frane","frase","frasi","frate","fredd","frena","freni","freno","frese","frode","frodi","fruga","frugo","fugge","funga","funge","furbi","furbo","furia","furie","fusti","fusto","gamba","gambe","garbo","gatta","gatti","gatto","gelai","gelso","gente","gergo","gesso","gesti","gesto","giano","gioca","gioco","giogo","gioia","giura","giuri","giuro","globo","gobba","gocce","goffa","goffi","golfo","gomma","gomme","gonfi","gradi","grado","grana","grani","grano","grata","grato","grave","gravi","grida","gridi","grido","grifo","grigi","grumi","grumo","guado","guaio","guida","guide","guidi","gusti","gusto","hotel","idoli","idolo","igloo","imene","imita","imito","impar","invia","invio","iride","irosa","iroso","isola","isole","ladri","ladro","laghi","lagna","lanci","larga","largo","larva","laser","latta","latte","legge","leggi","legna","legni","lemme","lente","lenti","lento","leone","leoni","lepre","lepri","lesso","letta","letti","letto","libri","libro","lieve","limbo","lince","linea","lista","liste","litri","litro","lizza","lotta","lotte","lotti","lungo","luogo","lussi","lusso","macco","machi","maghe","magia","magno","magra","magre","magri","magro","mamma","mamme","manco","manda","mando","manga","mangi","manta","mappa","mappe","marca","march","marco","marea","marma","marmi","massa","masse","matta","matte","matti","matto","mente","menti","merce","merci","merli","merlo","merto","messa","metri","metro","mezza","mezzi","mezzo","micio","miele","mieli","mieta","migra","mille","mirto","mista","miste","misti","misto","molla","molle","molto","mondi","mondo","monte","monti","morde","mordi","morsa","morso","morte","mosca","mossa","mosse","mossi","mosto","motti","motto","mucca","multa","munga","munto","musei","museo","mutuo","nanna","nardi","nasca","nasce","nasci","nasco","natio","negro","nervi","nervo","nessi","netti","netto","ninja","nolla","nonna","nonno","norma","notai","noter","notte","notti","nulla","nuoto","nuova","nuove","nuovi","nuovo","occhi","odore","odori","olive","olivo","ombra","ombre","omena","onore","opaco","opera","opere","orari","orata","orchi","orina","orivo","ormai","osare","osato","ossea","osseo","ostia","ovest","ovile","ovvia","ovvio","pacco","padre","padri","paghi","pagro","palco","palla","palle","palma","palmi","panna","panni","panno","pappe","parco","parla","parli","parlo","parte","parti","parto","pasci","pasta","pasti","pasto","patte","patti","patto","pausa","pause","pazza","pazzi","pazzo","pelle","pelli","penna","penne","pensi","penso","perla","perle","pesca","pesce","pesci","pesto","petti","petto","pezzi","pezzo","piaga","piana","piane","piani","piano","picco","piega","piena","pieni","pieno","pieve","pigna","pigne","pigro","pinna","pinne","pinta","piove","piovi","piper","pista","piste","piuma","pizza","pizze","pizzi","placa","podio","poema","poeta","poeti","polli","pollo","polpa","polpi","polsi","polso","pompa","pompe","ponte","ponti","porco","porre","porta","porte","porti","porto","possa","posso","posta","posti","posto","prati","prato","preda","prede","prego","presa","prese","preso","press","prima","primi","primo","priva","prive","privo","prono","prora","prova","prove","pugni","pugno","pulce","punta","punte","punti","punto","purga","putto","puzza","quale","quasi","quiet","quota","radio","raggi","ragni","ragno","ralla","rampa","rampe","randa","ratti","razza","razze","razzi","razzo","reale","reali","reati","regia","regni","regno","renda","rende","rendi","renna","renne","resta","resti","resto","retro","ricar","ricca","ricco","righe","righi","rione","rissa","risse","ritmi","ritmo","rizza","rocca","rocia","rombo","rompa","rompe","rompi","rondo","rossa","rosso","rotta","rotti","rotto","rubai","rughe","ruota","ruote","ruspa","sacco","sacra","sacro","sagra","sagre","salda","saldi","saldo","salsa","salse","salta","salti","salto","salva","salve","salvi","salvo","sanno","santa","santi","santo","sassi","sasso","sazio","scade","scadi","scala","scale","scali","scalo","scapa","scavi","scavo","scema","scemi","scemo","scena","scene","scese","scesi","sceso","scont","scopa","scope","scopo","scovi","scudi","scudo","scusa","secca","secco","sedia","sedie","segni","segno","sensi","senso","senta","sente","senti","sento","senza","seria","serio","serra","serre","serve","servi","servo","sfera","sfida","sfide","sfidi","sfogo","sfora","siena","siero","sigla","sigle","sogna","sogni","sogno","solco","soldi","somma","somme","sonni","sonno","sopra","sorda","sordo","sorsi","sorso","sorta","sorte","sosia","sosta","sotto","spada","spade","spago","spala","sparo","spazi","spesa","spese","spiga","spina","spine","spira","spola","sport","sposa","spose","sposi","sposo","stadi","stano","stare","stati","stato","stava","steli","stelo","stile","stili","stima","stime","stimo","stipo","stira","stiro","stron","stufi","stufo","sudor","suite","suoli","suolo","suona","suoni","suono","super","svago","svela","svita","svola","tacco","tagli","talco","tanta","tante","tanto","tappi","tappo","tardi","targa","tasca","tassa","tasse","tasti","tasto","tatto","tazza","tazze","tempi","tempo","tenda","tende","tendi","tener","tengo","tenia","tenta","tenti","tento","tenue","terra","testa","teste","testi","testo","tetti","tetto","tigre","tigri","tinta","tinte","tinto","tirai","tizio","tocca","tocco","togli","tolgo","tomba","tombe","tondi","tondo","tonfo","tonno","tonto","torna","torni","torno","torre","torri","torta","torte","torti","torto","tosse","tosti","tosto","trama","trame","treni","treno","trina","troni","trono","trova","trovi","trovo","truce","tuffa","tuffi","tuffo","turni","turno","tutta","tutto","ubria","udito","ulivi","ulivo","umana","umano","umido","unghi","unica","unici","unico","unire","unita","uniti","unito","univa","urina","urlai","usala","usalo","usano","usare","usata","usate","usati","usato","usava","usavi","uscii","utile","utili","vacca","vaghi","valga","valgi","valgo","valle","valli","valso","vanno","varia","vario","vasta","vasti","vasto","venti","vento","verde","verdi","verga","versa","versi","verso","veste","vetri","vetro","viale","viali","video","villa","ville","vince","vinci","vinti","vinto","viola","virgo","virus","visse","vissi","vista","viste","visto","vizio","volai","volgo","volle","volpe","volta","volti","volto","votta","vuota","vuoto","zaini","zaino","zampa","zampe","zanna","zanne","zappa","zappe","zebra","zebre","zolla","zombi","zucca","zuffa","zuppa","zuppe"]});
+
+</script>
+<script>
+/* Motore indipendente dalla UI: lettere ripetute e modalità difficile. */
+(function (root) {
+  'use strict';
+  function scoreGuess(guess, answer) {
+    const result = Array(5).fill('absent');
+    const counts = Object.create(null);
+    for (let i = 0; i < 5; i++) counts[answer[i]] = (counts[answer[i]] || 0) + 1;
+    for (let i = 0; i < 5; i++) {
+      if (guess[i] === answer[i]) {
+        result[i] = 'correct';
+        counts[guess[i]]--;
+      }
+    }
+    for (let i = 0; i < 5; i++) {
+      if (result[i] === 'correct') continue;
+      if (counts[guess[i]] > 0) {
+        result[i] = 'present';
+        counts[guess[i]]--;
+      }
+    }
+    return result;
+  }
+  function checkHardMode(guess, previous) {
+    const required = Object.create(null);
+    const green = Array(5).fill(null);
+    const yellowPositions = Array.from({length:5},()=>new Set());
+    for (const row of previous) {
+      const inRow = Object.create(null);
+      for (let i = 0; i < 5; i++) {
+        const letter = row.word[i];
+        if (row.marks[i] === 'correct') green[i] = letter;
+        if (row.marks[i] === 'present') yellowPositions[i].add(letter);
+        if (row.marks[i] === 'correct' || row.marks[i] === 'present') {
+          inRow[letter] = (inRow[letter] || 0) + 1;
+        }
+      }
+      for (const letter of Object.keys(inRow)) required[letter] = Math.max(required[letter] || 0, inRow[letter]);
+    }
+    for (let i = 0; i < 5; i++) {
+      if (green[i] && guess[i] !== green[i]) return `La ${i + 1}ª lettera deve essere ${green[i]}.`;
+      if (yellowPositions[i].has(guess[i])) return `La lettera ${guess[i]} non può stare nella posizione ${i + 1}.`;
+    }
+    for (const [letter, min] of Object.entries(required)) {
+      const count = [...guess].filter(char => char === letter).length;
+      if (count < min) return min === 1 ? `Devi usare la lettera ${letter}.` : `Devi usare almeno ${min} lettere ${letter}.`;
+    }
+    return null;
+  }
+  const api = Object.freeze({ scoreGuess, checkHardMode });
+  root.CinqueEngine = api;
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+(() => {
+  'use strict';
+  const WORDS = window.CINQUE_WORDS;
+  const ENGINE = window.CinqueEngine;
+  if (!WORDS || !ENGINE) {
+    document.getElementById('messageText').textContent = 'Impossibile caricare il dizionario. Ricarica la pagina.';
+    return;
+  }
+  const answers = [...new Set(WORDS.answers.map(s => s.toUpperCase()))];
+  const allowed = new Set([...WORDS.allowed, ...WORDS.answers].map(s => s.toUpperCase()));
+  const storageKey = 'cinque-infinite-v1';
+  const $ = id => document.getElementById(id);
+  const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rows = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
+  const BACKSPACE = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H9Z"/><path d="m12 9 6 6m0-6-6 6"/></svg>';
+  const blankStats = () => ({ games:0, wins:0, streak:0, best:0, distribution:[0,0,0,0,0,0] });
+  const blankSettings = () => ({ theme:'dark', hard:false, auto:true });
+  const freshState = () => ({ version:1, settings:blankSettings(), stats:blankStats(), number:0, remaining:[], game:null });
+  const defer = (fn, ms) => window.setTimeout(fn, ms);
+  let state = restore();
+  let revealing = false;
+  let autoInterval = null;
+  let autoRemaining = 0;
+  let toastTimeout = null;
+  let modalType = '';
+  let lastFocused = null;
+  let dialogCancel = null;
+
+  function restore() {
+    let loaded;
+    try { loaded = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch (_) { /* private mode */ }
+    const base = freshState();
+    if (!loaded || loaded.version !== 1 || !loaded.stats || !loaded.settings) return base;
+    const s = loaded.stats;
+    base.stats = {
+      games: positiveInt(s.games), wins: positiveInt(s.wins), streak: positiveInt(s.streak),
+      best: positiveInt(s.best), distribution: Array.from({length:6}, (_,i) => positiveInt(s.distribution?.[i]))
+    };
+    if (base.stats.wins > base.stats.games) base.stats.wins = base.stats.games;
+    base.settings = {
+      theme: loaded.settings.theme === 'light' ? 'light' : 'dark',
+      hard: Boolean(loaded.settings.hard), auto: loaded.settings.auto !== false
+    };
+    base.number = positiveInt(loaded.number);
+    base.remaining = Array.isArray(loaded.remaining)
+      ? loaded.remaining.filter(i => Number.isInteger(i) && i >= 0 && i < answers.length)
+      : [];
+    const g = loaded.game;
+    if (g && answers.includes(g.answer) && Array.isArray(g.guesses) && g.guesses.length <= 6) {
+      const guesses = g.guesses.filter(x => typeof x?.word === 'string' && /^[A-Z]{5}$/.test(x.word)).map(x => ({word:x.word, marks:ENGINE.scoreGuess(x.word, g.answer)}));
+      const win = guesses.some(x => x.word === g.answer);
+      base.game = {
+        answer:g.answer, guesses, current: /^[A-Z]{0,5}$/.test(g.current) ? g.current : '',
+        status: ['won','lost'].includes(g.status) ? g.status : (win ? 'won' : guesses.length === 6 ? 'lost' : 'playing'),
+        hard: typeof g.hard === 'boolean' ? g.hard : base.settings.hard
+      };
+      if (base.game.status !== 'playing') base.game.current = '';
+    }
+    return base;
+  }
+  function positiveInt(n) { return Number.isSafeInteger(n) && n > 0 ? n : 0; }
+  function save() { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch (_) { /* limited storage */ } }
+  function pickAnswer() {
+    if (!state.remaining.length) {
+      state.remaining = Array.from({ length:answers.length }, (_, i) => i);
+      for (let i = state.remaining.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [state.remaining[i], state.remaining[j]] = [state.remaining[j], state.remaining[i]];
+      }
+      if (state.game?.answer && state.remaining.length > 1) {
+        const last = state.remaining.length - 1;
+        if (answers[state.remaining[last]] === state.game.answer) [state.remaining[last], state.remaining[0]] = [state.remaining[0], state.remaining[last]];
+      }
+    }
+    return answers[state.remaining.pop()];
+  }
+  function beginNewRound() {
+    stopAuto();
+    closeModal();
+    revealing = false;
+    state.number++;
+    state.game = {answer:pickAnswer(), guesses:[], current:'', status:'playing', hard:state.settings.hard};
+    save();
+    render();
+    $('subtitle').textContent = 'Trova la parola nascosta';
+    $('statusText').textContent = state.settings.hard ? 'MODALITÀ DIFFICILE' : 'PRONTO A GIOCARE';
+  }
+  function completeRound(win) {
+    const g = state.game;
+    if (g.status !== 'playing') return;
+    g.status = win ? 'won' : 'lost';
+    g.current = '';
+    const st = state.stats;
+    st.games++;
+    if (win) {
+      st.wins++;
+      st.streak++;
+      st.best = Math.max(st.best, st.streak);
+      st.distribution[g.guesses.length - 1]++;
+    } else st.streak = 0;
+    save();
+    renderStats();
+  }
+  function abandonRound() {
+    completeRound(false);
+    beginNewRound();
+    toast('Partita saltata: conta come sconfitta.');
+  }
+  function confirmNewRound() {
+    if (revealing) return;
+    const g = state.game;
+    if (g.status !== 'playing' || g.guesses.length === 0) return beginNewRound();
+    openModal('confirm', 'Salti questa partita?', 'PARTITA IN CORSO', `
+      <p>Hai già usato <strong>${g.guesses.length} tentativ${g.guesses.length === 1 ? 'o' : 'i'}</strong>. Se cambi parola ora, la partita viene contata come <strong>sconfitta</strong> e la serie di vittorie si interrompe.</p>
+      <div class="modal-actions"><button class="modal-action secondary" id="cancelSkip">Continua</button><button class="modal-action" id="acceptSkip">Salta partita</button></div>
+    `);
+    $('cancelSkip').addEventListener('click', closeModal);
+    $('acceptSkip').addEventListener('click', abandonRound);
+  }
+  function render() {
+    document.body.dataset.theme = state.settings.theme;
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', state.settings.theme === 'dark' ? '#10101b' : '#f6f5fa');
+    $('roundNumber').textContent = '#' + String(state.number).padStart(3, '0');
+    renderStats();
+    renderBoard();
+    renderKeyboard();
+    const g = state.game;
+    $('messageText').textContent = g.status === 'won' ? 'Parola indovinata. Ottimo lavoro!' : g.status === 'lost' ? `La parola era ${g.answer}` : `${Math.max(0,6 - g.guesses.length)} tentativi rimasti`;
+    $('statusText').textContent = g.status === 'playing' ? (g.hard ? 'MODALITÀ DIFFICILE' : 'PRONTO A GIOCARE') : g.status === 'won' ? 'PARTITA VINTA' : 'PARTITA TERMINATA';
+    $('subtitle').textContent = g.status === 'playing' ? 'Trova la parola nascosta' : g.status === 'won' ? 'Hai trovato la parola!' : 'Riprova con una nuova parola';
+    $('newGameBtn').setAttribute('aria-label', g.status === 'playing' ? 'Salta e inizia una nuova partita' : 'Inizia una nuova partita');
+  }
+  function renderStats() {
+    $('sideGames').textContent = String(state.stats.games).padStart(2,'0');
+    $('sideWins').textContent = String(state.stats.wins).padStart(2,'0');
+    $('sideStreak').textContent = String(state.stats.streak).padStart(2,'0');
+  }
+  function renderBoard() {
+    const g = state.game;
+    $('board').innerHTML = Array.from({length:6}, (_,r) => {
+      const submitted = g.guesses[r];
+      const letters = submitted ? submitted.word : r === g.guesses.length && g.status === 'playing' ? g.current : '';
+      const cells = Array.from({length:5}, (_,c) => {
+        const value = letters[c] || '';
+        const classes = ['tile'];
+        if (value) classes.push('filled');
+        if (submitted) classes.push(submitted.marks[c]);
+        else if (r === g.guesses.length && g.status === 'playing' && c === g.current.length) classes.push('active');
+        return `<span class="${classes.join(' ')}" aria-label="${value || 'vuoto'}${submitted ? ', ' + submitted.marks[c] : ''}">${value}</span>`;
+      }).join('');
+      return `<div class="board-row" aria-label="Tentativo ${r + 1}">${cells}</div>`;
+    }).join('');
+  }
+  function renderKeyboard() {
+    const priority = { absent:1, present:2, correct:3 };
+    const seen = Object.create(null);
+    for (const guess of state.game.guesses) for (let i = 0; i < 5; i++) {
+      const l = guess.word[i], mark = guess.marks[i];
+      if ((priority[mark] || 0) > (priority[seen[l]] || 0)) seen[l] = mark;
+    }
+    $('keyboard').innerHTML = rows.map((row, i) => {
+      let keys = [...row];
+      if (i === 2) keys = ['ENTER', ...keys, 'BACK'];
+      return `<div class="keyboard-row">${keys.map(k => {
+        const label = k === 'BACK' ? 'Cancella lettera' : k === 'ENTER' ? 'Invia parola' : `Lettera ${k}`;
+        const cls = `key${k.length > 1 ? ' wide' : ''}${seen[k] ? ' ' + seen[k] : ''}`;
+        return `<button type="button" class="${cls}" data-key="${k}" aria-label="${label}">${k === 'BACK' ? BACKSPACE : k === 'ENTER' ? 'INVIO' : k}</button>`;
+      }).join('')}</div>`;
+    }).join('');
+  }
+  function keyPressed(k) {
+    if (revealing || !$('modalScrim').hidden || state.game.status !== 'playing') return;
+    const g = state.game;
+    if (k === 'BACKSPACE' || k === 'BACK') {
+      if (g.current) { g.current = g.current.slice(0,-1); save(); renderBoard(); }
+      return;
+    }
+    if (k === 'ENTER') { submit(); return; }
+    if (!/^[A-Z]$/.test(k) || g.current.length >= 5) return;
+    g.current += k;
+    save();
+    renderBoard();
+    const tile = $('board').children[g.guesses.length]?.children[g.current.length - 1];
+    if (tile && !isReduced) tile.classList.add('pop');
+  }
+  function submit() {
+    const g = state.game, word = g.current;
+    if (word.length !== 5) { invalid('Servono 5 lettere.'); return; }
+    if (!allowed.has(word)) { invalid('Parola non presente nel dizionario.'); return; }
+    if (g.hard) {
+      const issue = ENGINE.checkHardMode(word, g.guesses);
+      if (issue) { invalid(issue); return; }
+    }
+    const marks = ENGINE.scoreGuess(word, g.answer);
+    const r = g.guesses.length;
+    g.guesses.push({word,marks});
+    g.current = '';
+    if (word === g.answer) completeRound(true);
+    else if (g.guesses.length === 6) completeRound(false);
+    save();
+    revealing = true;
+    renderBoard();
+    // Nascondi momentaneamente i risultati per svelarli uno dopo l'altro.
+    const targetRow = $('board').children[r];
+    const tiles = Array.from(targetRow.children);
+    tiles.forEach((tile,i) => {
+      tile.classList.remove(marks[i]);
+      if (!isReduced) {
+        defer(() => {
+          tile.classList.add(marks[i], 'flip');
+          tile.style.animationDelay = '0ms';
+        }, i * 190);
+      } else tile.classList.add(marks[i]);
+    });
+    const duration = isReduced ? 0 : 5 * 190 + 210;
+    defer(() => {
+      revealing = false;
+      render();
+      if (g.status !== 'playing') {
+        if (g.status === 'won' && !isReduced) {
+          Array.from($('board').children[r].children).forEach((tile, i) => defer(() => {
+            // L'animazione è decorativa: non blocca la prossima partita.
+            if (tile.isConnected) tile.classList.add('win-bounce');
+          },i * 85));
+        }
+        defer(showResult, isReduced ? 80 : 450);
+      }
+    }, duration);
+  }
+  function invalid(message) {
+    toast(message);
+    const active = $('board').children[state.game.guesses.length];
+    if (!isReduced && active) {
+      active.classList.remove('shake');
+      void active.offsetWidth;
+      active.classList.add('shake');
+    }
+  }
+  function toast(message) {
+    clearTimeout(toastTimeout);
+    $('toast').textContent = message;
+    $('toast').classList.add('shown');
+    toastTimeout = defer(() => $('toast').classList.remove('shown'), 2350);
+  }
+  function stopAuto() {
+    if (autoInterval) clearInterval(autoInterval);
+    autoInterval = null;
+    autoRemaining = 0;
+  }
+  function scheduleAuto() {
+    stopAuto();
+    if (!state.settings.auto || state.game.status === 'playing') return;
+    autoRemaining = 15;
+    refreshAutoLabel();
+    autoInterval = window.setInterval(() => {
+      if (document.hidden) return; // Non consumare il timer mentre la scheda non è visibile.
+      if (modalType && modalType !== 'result') return;
+      autoRemaining--;
+      refreshAutoLabel();
+      if (autoRemaining <= 0) beginNewRound();
+    },1000);
+  }
+  function refreshAutoLabel() {
+    const el = $('autoStatus');
+    if (el) el.textContent = `Nuova partita automatica tra ${autoRemaining} s · Disattivabile nelle impostazioni`;
+  }
+  function showResult() {
+    if (state.game.status === 'playing') return;
+    const win = state.game.status === 'won';
+    const g = state.game;
+    const header = win ? 'Parola trovata!' : 'Ci riproviamo?';
+    const intro = win ? `Complimenti! Hai indovinato in <strong>${g.guesses.length} ${g.guesses.length === 1 ? 'tentativo' : 'tentativi'}</strong>.` : `Hai esaurito i 6 tentativi. La prossima parola potrebbe essere quella giusta.`;
+    openModal('result',header,win ? 'MISSIONE COMPIUTA' : 'PARTITA TERMINATA', `
+      <span class="result-badge">${win ? '✓ VITTORIA' : '↻ NUOVO TENTATIVO'}</span>
+      <p class="result-message">${intro}</p>
+      <div class="word-reveal"><span class="reveal-label">LA PAROLA ERA</span><strong>${g.answer}</strong></div>
+      <div class="modal-actions"><button class="modal-action secondary" id="shareResult">Condividi</button><button class="modal-action" id="playAgain">Gioca ancora →</button></div>
+      ${state.settings.auto ? '<div class="auto-status" id="autoStatus"></div>' : '<p class="auto-status">Nuova partita quando vuoi, senza limiti.</p>'}
+    `);
+    $('playAgain').addEventListener('click', beginNewRound);
+    $('shareResult').addEventListener('click', shareResult);
+    scheduleAuto();
+  }
+  function shareResult() {
+    const g = state.game;
+    const icons = {correct:'🟩',present:'🟨',absent:'⬛'};
+    const text = `CINQUE. #${state.number} ${g.status === 'won' ? g.guesses.length : 'X'}/6\n${g.guesses.map(row => row.marks.map(m=>icons[m]).join('')).join('\n')}\n\nGioca anche tu: ${location.protocol === 'http:' || location.protocol === 'https:' ? location.href.split('#')[0].split('?')[0] : 'CINQUE. – Parole infinite'}`;
+    const copied = () => toast('Risultato copiato!');
+    // Il share sheet di iOS è preferibile se disponibile.
+    if (navigator.share) navigator.share({text}).catch(err => { if (err.name !== 'AbortError') copyFallback(text, copied); });
+    else copyFallback(text,copied);
+  }
+  function copyFallback(text, onSuccess) {
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(onSuccess).catch(() => toast('Condivisione non disponibile.'));
+    else toast('Condivisione disponibile dopo la pubblicazione HTTPS.');
+  }
+  function openModal(type, title, eyebrow, html) {
+    lastFocused = document.activeElement;
+    modalType = type;
+    $('modalTitle').textContent = title;
+    $('modalEyebrow').textContent = eyebrow;
+    $('modalContent').innerHTML = html;
+    $('modalScrim').hidden = false;
+    document.body.classList.add('modal-open');
+    $('closeModalBtn').focus();
+  }
+  function closeModal() {
+    if ($('modalScrim').hidden) return;
+    $('modalScrim').hidden = true;
+    $('modalContent').innerHTML = '';
+    modalType = '';
+    document.body.classList.remove('modal-open');
+    if (lastFocused?.isConnected) lastFocused.focus({preventScroll:true});
+  }
+  function showHelp() {
+    openModal('help','Come si gioca','REGOLE / 01', `
+      <p>Indovina una <strong>parola italiana di 5 lettere</strong> in massimo <strong>6 tentativi</strong>. Dopo ogni parola, le caselle cambiano colore.</p>
+      <div class="ex-row"><span class="ex-tile correct">C</span><span class="ex-tile">A</span><span class="ex-tile">N</span><span class="ex-tile">T</span><span class="ex-tile">O</span></div>
+      <p class="example-caption"><strong>Verde:</strong> la C è nella posizione corretta.</p>
+      <div class="ex-row"><span class="ex-tile">C</span><span class="ex-tile present">A</span><span class="ex-tile">N</span><span class="ex-tile">T</span><span class="ex-tile">O</span></div>
+      <p class="example-caption"><strong>Giallo:</strong> la A è presente ma in un'altra posizione.</p>
+      <div class="ex-row"><span class="ex-tile">C</span><span class="ex-tile">A</span><span class="ex-tile absent">N</span><span class="ex-tile">T</span><span class="ex-tile">O</span></div>
+      <p class="example-caption"><strong>Grigio:</strong> la N non è nella parola, oppure è già stata conteggiata altrove.</p>
+      <div class="separator"></div>
+      <p><strong>Partite infinite:</strong> premi «NUOVA» quando vuoi. Dopo una partita conclusa puoi avviare subito la successiva; l'avvio automatico è configurabile.</p>
+      <p><strong>Modalità difficile:</strong> usa i suggerimenti scoperti nei tentativi precedenti: conserva le lettere verdi nella loro posizione e riutilizza quelle gialle.</p>
+      <button class="modal-action" id="understoodBtn">Ho capito, giochiamo →</button>
+    `);
+    $('understoodBtn').addEventListener('click',closeModal);
+  }
+  function showStats() {
+    const s = state.stats;
+    const percent = s.games ? Math.round(s.wins / s.games * 100) : 0;
+    const max = Math.max(...s.distribution,1);
+    openModal('stats','Le tue statistiche','PROGRESSI / PERSONALI', `
+      <div class="stat-big-row">
+        <div class="stat-big"><b>${s.games}</b><span>Partite</span></div>
+        <div class="stat-big"><b>${percent}%</b><span>Vittorie</span></div>
+        <div class="stat-big"><b>${s.streak}</b><span>Serie attuale</span></div>
+        <div class="stat-big"><b>${s.best}</b><span>Serie record</span></div>
+      </div>
+      <div class="hist-label">DISTRIBUZIONE DEI TENTATIVI VINCENTI</div>
+      ${s.distribution.map((n,i) => `<div class="hist-row"><span class="hist-n">${i+1}</span><div class="hist-track"><div class="hist-fill${n === 0 ? ' zero' : ''}" style="width:${n===0 ? '100' : Math.max(12,n/max*100)}%">${n}</div></div></div>`).join('')}
+      <p class="modal-footer-text">I progressi sono salvati solo su questo dispositivo e browser. Non vengono inviati a server.</p>
+      <button class="modal-action" id="statsBackBtn">Torna al gioco</button>
+    `);
+    $('statsBackBtn').addEventListener('click',closeModal);
+  }
+  function showSettings() {
+    const s = state.settings;
+    openModal('settings','Impostazioni','PERSONALIZZA / 03', `
+      <div class="settings-line"><div><strong>Tema scuro</strong><small>Passa dal tema chiaro al tema scuro.</small></div><button type="button" class="switch${s.theme === 'dark' ? ' on' : ''}" role="switch" aria-checked="${s.theme === 'dark'}" aria-label="Tema scuro" id="themeSwitch"></button></div>
+      <div class="settings-line"><div><strong>Modalità difficile</strong><small>Obbliga a utilizzare gli indizi già scoperti. Si applica dalla prossima partita.</small></div><button type="button" class="switch${s.hard ? ' on' : ''}" role="switch" aria-checked="${s.hard}" aria-label="Modalità difficile" id="hardSwitch"></button></div>
+      <div class="settings-line"><div><strong>Nuova partita automatica</strong><small>Dopo una vittoria o sconfitta, ricomincia dopo 15 secondi. Puoi sempre usare «Gioca ancora».</small></div><button type="button" class="switch${s.auto ? ' on' : ''}" role="switch" aria-checked="${s.auto}" aria-label="Nuova partita automatica" id="autoSwitch"></button></div>
+      <div class="separator"></div>
+      <p><strong>App su iPhone:</strong> apri il sito con Safari, premi <strong>Condividi</strong> (quadrato con freccia) e seleziona <strong>Aggiungi alla schermata Home</strong>. Funziona anche offline dopo il primo caricamento.</p>
+      <button class="modal-action secondary" id="settingsCloseBtn">Salva e chiudi</button>
+    `);
+    for (const [id,run] of Object.entries({
+      themeSwitch: () => { s.theme = s.theme === 'dark' ? 'light' : 'dark'; document.body.dataset.theme = s.theme; document.querySelector('meta[name="theme-color"]').content = s.theme === 'dark' ? '#10101b' : '#f6f5fa'; },
+      hardSwitch: () => { s.hard = !s.hard; if (state.game.guesses.length === 0 && state.game.status === 'playing') state.game.hard = s.hard; },
+      autoSwitch: () => { s.auto = !s.auto; if (!s.auto) stopAuto(); else if (state.game.status !== 'playing') scheduleAuto(); }
+    })) {
+      $(id).addEventListener('click', () => {
+        run();
+        const b = $(id);
+        const on = id === 'themeSwitch' ? s.theme === 'dark' : id === 'hardSwitch' ? s.hard : s.auto;
+        b.classList.toggle('on',on); b.setAttribute('aria-checked',String(on));
+        save(); renderStats();
+      });
+    }
+    $('settingsCloseBtn').addEventListener('click', () => { closeModal(); render(); });
+  }
+  // Inizializzazione.
+  if (!state.game) {
+    state.number = 0;
+    beginNewRound();
+  } else render();
+  $('keyboard').addEventListener('click', e => { const key = e.target.closest('[data-key]'); if (key) keyPressed(key.dataset.key); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !$('modalScrim').hidden) { closeModal(); return; }
+    if (e.metaKey || e.ctrlKey || e.altKey || e.repeat) return;
+    if (!$('modalScrim').hidden) {
+      if (e.key === 'Tab') {
+        const selectable = [...$('modalScrim').querySelectorAll('button:not(:disabled), a[href]')];
+        const current = selectable.indexOf(document.activeElement);
+        if (selectable.length && ((e.shiftKey && current === 0) || (!e.shiftKey && current === selectable.length - 1))) {
+          e.preventDefault(); (e.shiftKey ? selectable[selectable.length-1] : selectable[0]).focus();
+        }
+      }
+      return;
+    }
+    if (e.key === 'Backspace' || e.key === 'Enter' || (/^[A-Za-zÀ-ÿ]$/.test(e.key))) {
+      e.preventDefault();
+      const key = e.key === 'Backspace' ? 'BACK' : e.key === 'Enter' ? 'ENTER' : e.key.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
+      keyPressed(key);
+    }
+  });
+  $('newGameBtn').addEventListener('click', confirmNewRound);
+  $('helpBtn').addEventListener('click',showHelp);
+  $('shortHelpBtn').addEventListener('click',showHelp);
+  $('statsBtn').addEventListener('click',showStats);
+  $('settingsBtn').addEventListener('click',showSettings);
+  $('closeModalBtn').addEventListener('click',closeModal);
+  $('modalScrim').addEventListener('click', e => { if (e.target === $('modalScrim')) closeModal(); });
+  if (state.game.status !== 'playing') scheduleAuto();
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  }
+})();
+
+</script>
+</body>
+</html>
