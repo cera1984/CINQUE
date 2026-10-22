@@ -1,8 +1,8 @@
 # CINQUE
 
-Wordle italiano infinito e minigioco **CINQUE?ù**, accessibile dal menu o da `inversa.html`.
+Wordle italiano infinito e minigioco **CINQUE?**, accessibile dal menu o da `inversa.html`.
 
-## CINQUE?ù
+## CINQUE?
 
 Trasforma la parola iniziale nella finale cambiando esattamente una lettera nella stessa posizione. Ogni parola deve appartenere al dizionario italiano di cinque lettere già distribuito con CINQUE (`data/lexicon-v3.js`, con fonti e licenze in `data/LEXICON_SOURCES.md`). Non si possono aggiungere, togliere o riordinare lettere. Non c'è limite di mosse.
 
