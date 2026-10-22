@@ -1,0 +1,24 @@
+name: Validate CINQUE dictionary
+on:
+  push:
+    paths:
+      - 'data/lexicon-v2.js'
+      - 'index.html'
+      - 'tests/**'
+      - '.github/workflows/validate-lexicon.yml'
+  pull_request:
+    paths:
+      - 'data/lexicon-v2.js'
+      - 'index.html'
+      - 'tests/**'
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/lexicon.test.cjs
