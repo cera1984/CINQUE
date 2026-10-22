@@ -14,7 +14,7 @@ const vocab = sandbox.window.CINQUE_WORDS;
 const own = xs => Array.from(xs);
 
 test('dictionary is loaded in the expected page order', () => {
-  assert.match(html, /src="\.\/data\/lexicon-v2\.js"/);
+  assert.match(html, /src="\.\/data\/lexicon-v3\.js"/);
   assert.ok(html.indexOf('src="./data/lexicon-v3.js"') < html.indexOf('const WORDS = window.CINQUE_WORDS;'));
 });
 test('the alphabet and length are canonical', () => {
