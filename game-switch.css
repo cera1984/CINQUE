@@ -3,4 +3,7 @@
 .game-switch a strong{font-size:15px;letter-spacing:.3px}.game-switch a span{font-size:11px}
 .game-switch a:hover{background:var(--surface-raised);color:var(--text)}
 .game-switch a[aria-current="page"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.ladder-victory{padding:22px;margin:20px 0 12px;text-align:center;background:var(--surface-raised);border:2px solid var(--green);border-radius:16px}
+.ladder-victory[hidden],#form[hidden],#ladderActions[hidden]{display:none}
+.victory-icon{font-size:36px;color:var(--green)}.ladder-victory h2{font-size:32px;margin:8px 0;color:var(--text);letter-spacing:-1px}.ladder-victory p{color:var(--secondary);font-size:14px;line-height:1.6;margin:8px 0}
 @media(max-width:540px){.game-switch{margin-top:14px}.game-switch a{padding:10px 5px}.game-switch a strong{font-size:14px}.game-switch a span{font-size:10px}}

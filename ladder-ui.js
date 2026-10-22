@@ -18,8 +18,11 @@
     }));
     $('word').disabled=$('submit').disabled=$('hint').disabled=won();
     $('undo').disabled=game.chain.length<2||won();
+    $('victory').hidden=!won();
+    $('form').hidden=$('ladderActions').hidden=won();
+    $('victorySummary').textContent=won()?`Hai raggiunto ${game.target} in ${game.chain.length-1} mosse con ${game.hints} aiuti.`:'';
     $('progress').textContent=`${game.chain.length-1} mosse · ${game.hints} aiuti · minimo iniziale ${engine.path(game.chain[0],game.target).length-1}`;
-    $('message').textContent=won()?`Percorso completato! ${game.chain.length-1} mosse e ${game.hints} aiuti. Premi Nuova per rigiocare.`:message||`Parti da ${game.chain.at(-1)}. Cambia una sola lettera.`;
+    $('message').textContent=won()?'Hai vinto! Parola finale raggiunta.':message||`Parti da ${game.chain.at(-1)}. Cambia una sola lettera.`;
     $('chain').scrollTop=$('chain').scrollHeight;save();
   }
   function fresh(){
@@ -32,7 +35,7 @@
     event.preventDefault();if(won())return;
     const word=$('word').value.trim().toUpperCase(),issue=engine.validate(game.chain.at(-1),word);
     if(issue){render(issue);return;}
-    game.chain.push(word);$('word').value='';render();if(!won())$('word').focus();
+    game.chain.push(word);$('word').value='';render();if(won())$('victoryTitle').focus();else $('word').focus();
   });
   $('hint').onclick=()=>{
     if(won())return;
@@ -42,6 +45,7 @@
   };
   $('undo').onclick=()=>{if(!won()&&game.chain.length>1){game.chain.pop();$('word').value='';render();$('word').focus();}};
   $('new').onclick=()=>{if(!won()&&game.chain.length>1&&!window.confirm('Lasciare questo percorso e iniziare una nuova sfida?'))return;fresh();};
+  $('playAgain').onclick=()=>{fresh();$('word').focus();};
   try {document.body.dataset.theme=localStorage.getItem('cinque-ladder-theme')==='light'?'light':'dark';}catch(_){}
   $('theme').onclick=()=>{const theme=document.body.dataset.theme==='dark'?'light':'dark';document.body.dataset.theme=theme;try{localStorage.setItem('cinque-ladder-theme',theme);}catch(_){}};
   if(game)render();else fresh();
